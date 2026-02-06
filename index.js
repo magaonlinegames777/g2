@@ -9,6 +9,8 @@ var USERIPADDRESS=0;
 var USER_DIRECTORY;
 var ACCOUNT_BALANCE, ACCOUNT_EMAIL, BANK_NAME;
 var priceINT,balanceINT;
+
+
 $(document).ready(function(){
 
     //17 AUGUST 2022
@@ -191,7 +193,19 @@ $(document).ready(function(){
     );
 
  
+    BTC_RATE();
 });
+
+
+
+// February 2026
+function BTC_RATE(){
+      $.getJSON("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd", 
+        function(data) {
+          $(".btcRate").text(data.bitcoin.usd);
+        }
+      );
+}
 
 function tawkto(){
     // <!--Start of Tawk.to Script-->
@@ -1242,7 +1256,7 @@ function BUY_THIS_PRODUCT(x){
         $('.ALCNTS').addClass('hide');
         $('.CART_SECTION').removeClass('hide');
         $('.dollar_amount').text(priceOfProduct);
-        $('.btc_amount_balance').text(priceOfProduct);
+        // $('.btc_amount_balance').text(priceOfProduct);
 
         GET_BTC_NOW(priceOfProduct);
         console.log('PRICE: '+ priceOfProduct);
@@ -1266,8 +1280,20 @@ function BUY_THIS_PRODUCT(x){
 function TOP_UP_BTC(){
     $('.ALCNTS').addClass('hide');
     $('.BITCOIN_SECTION').removeClass('hide');
-}
 
+    var value = $(".dollar_amount").text();
+    addUP(value);
+}
+function addUP(x){
+    console.log("x: " + x);
+
+    var num1 = Number(x);
+    console.log("num1: " + num1);
+    var total = num1 + 200;
+    $('.btc_amount_balance').text(total);
+
+    console.log(total);
+}
 function OPEN_MYORDERS(){
     $('.ALCNTS').addClass('hide');
     $('.MYORDERS').removeClass('hide');
