@@ -10915,23 +10915,55 @@
                     </h5>
 
                     <div class="in_basket AFTER_PURCHASED">
-                        <a class="inb1 purchased_1">In the basket of 
-                            <span class="transaction_items tItems">1 items</span>
-                             in the amount of 
-                            <span class="transaction_amount"> <span class="dollar_amount"></span> $</span>
+                         <div class="table_cart">
+                            <span class="tc">
+                                Description
+                            </span>
+                            <span class="tc" id="tc_amount">
+                                Amount
+                            </span>
+                        </div>
+                        
+                        <div class="table_cart">
+                            <span class="tc tc1">
+                                In the basket of 1 items in the amount of
+                            </span>
+                            <span class="tc" id="tc_amount" >
+                                <span class="dollar_amount"></span> $
+                            </span>
+                        </div>
 
+                        <div class="table_cart">
+                            <span class="tc tc1">
+                                OTP Authenticator BOT added
+                            </span>
+                            <span class="tc" id="tc_amount">
+                                200 $
+                            </span>
+                        </div>
+
+                        <div class="table_cart" id="pvn">
+                            <span class="tc tc1">
+                                Private Virtual Network (optional)
+                            </span>
+                            <span class="tc" id="tc_amount">
+                                150 $
+                            </span>
+
+                            <i class="material-icons" id="close_PVN">close</i>
+                        </div>
+
+                        <div class="total_bx">
+                            Total: $<span id="total_cart">0.00</span>
+                        </div>
+
+
+                        <a class="inb1 purchased_1">
                             <span class="transaction_balance">
                                 Balance: <span class="account_user_balance"></span>$
                             </span>
                         </a>
 
-                         <a class="inb1 purchased_1">OTP Authenticator BOT
-                            <span class="transaction_items tItems">  </span>
-                             added ___ ___ ___ _ 
-                            <span class="transaction_amount"> <span class="bot_amount">200</span> $</span>
-
-                            
-                        </a>
 
                         <a class="btn topUpBTC purchased_1">
                             <i class="material-icons left">money</i>
@@ -10942,7 +10974,12 @@
                             <i class="fa fa-spinner fa-spin right hide FMONEY_1" style="font-size:24px"></i>
                             PURCHASE
                         </a>
+
+
+                       
                     </div>
+
+
                     <div class="buy_prod_now hide">
 
                             <div style="text-align:center">
