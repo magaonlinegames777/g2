@@ -1077,7 +1077,7 @@ function GET_BTC_NOW(x){
     console.log('This is raw price: ',raw_price);
     $('#dollar').text('$'+raw_price);
     var amount = raw_price;
-    
+
     btc    = jQuery('#btcvalue')
     $.get("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD",function(data){
      let BTC_amount = amount / data["USD"],
@@ -1244,6 +1244,15 @@ function showProductTable(){
     }
 }
 
+// feb 2026
+function closePVN(){
+    $("#pvn").css("visibility", "hidden");
+
+    var num1 = $('.dollar_amount').text();
+    var num1 = Number(num1);
+
+    addUP(num1);
+}
 
 // 17 AUGUST 2022
 function BUY_THIS_PRODUCT(x){
@@ -1304,15 +1313,15 @@ function addUP(x){
     if ($("#pvn").is(":visible")) { 
         console.log("Element is visible"); 
         console.log("num1: " + num1);
-        console.log("num2: " + num2);
-        var total = num1 + num2;
+        // console.log("num2: " + num2);
+        var total = num1 + 200;
         $('#total_cart').text(total);
         $('.btc_amount_balance').text(total);
     }else{
         console.log("Element is not visible"); 
         console.log("num1: " + num1);
-        console.log("num2: " + num2);
-        var total = num1 + num2;
+        // console.log("num2: " + num2);
+        var total = num1 + 350;
         $('#total_cart').text(total);
         $('.btc_amount_balance').text(total);
     }
