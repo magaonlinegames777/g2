@@ -1077,7 +1077,7 @@ function GET_BTC_NOW(x){
     console.log('This is raw price: ',raw_price);
     $('#dollar').text('$'+raw_price);
     var amount = raw_price;
-    alert('BTC AMOUNT 777 : ' + raw_price);
+    
     btc    = jQuery('#btcvalue')
     $.get("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD",function(data){
      let BTC_amount = amount / data["USD"],
