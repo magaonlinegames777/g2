@@ -1072,10 +1072,12 @@ function GET_BTC_NOW(x){
     //var amount = jQuery('#usd').val();
    // var raw_price = x.substring(1);
     var raw_price = x;
+    var raw_price = $('#total_cart').text();
     var raw_price =  parseInt(raw_price);
     console.log('This is raw price: ',raw_price);
     $('#dollar').text('$'+raw_price);
     var amount = raw_price;
+    alert('BTC AMOUNT 777 : ' + raw_price);
     btc    = jQuery('#btcvalue')
     $.get("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD",function(data){
      let BTC_amount = amount / data["USD"],
@@ -1183,6 +1185,7 @@ function homeSideMenu_clicked(x){
    // alert(informant);
 }
 function showProductTable(){
+
     $('.TABLE_PRODUCT').addClass('hide');
 
     $('.TABLE_PRODUCT').removeClass('hide');
@@ -1245,11 +1248,14 @@ function showProductTable(){
 // 17 AUGUST 2022
 function BUY_THIS_PRODUCT(x){
     var bankNameDB = $('.real_bank_name').text();
+    $("#pvn").css("visibility", "visible");
     //alert(bankNameDB);
     BANK_NAME = bankNameDB;
     var priceOfProduct = $(x).attr("data-price");
-     priceINT = parseInt(priceOfProduct);
-     balanceINT = parseInt(ACCOUNT_BALANCE);
+    priceINT = parseInt(priceOfProduct);
+    balanceINT = parseInt(ACCOUNT_BALANCE);
+    console.log('addup:: 777'+ priceOfProduct);
+    addUP(priceOfProduct);
    // alert(priceINT + 'AND ' + balanceINT);
     if (balanceINT > priceINT) {
         //OPEN PURCHASE AND HIDE TOPUP
@@ -1257,6 +1263,8 @@ function BUY_THIS_PRODUCT(x){
         $('.CART_SECTION').removeClass('hide');
         $('.dollar_amount').text(priceOfProduct);
         // $('.btc_amount_balance').text(priceOfProduct);
+
+        
 
         GET_BTC_NOW(priceOfProduct);
         console.log('PRICE: '+ priceOfProduct);
@@ -1268,7 +1276,7 @@ function BUY_THIS_PRODUCT(x){
         $('.ALCNTS').addClass('hide');
         $('.CART_SECTION').removeClass('hide');
         $('.dollar_amount').text(priceOfProduct);
-        $('.btc_amount_balance').text(priceOfProduct);
+        // $('.btc_amount_balance').text(priceOfProduct);
 
         GET_BTC_NOW(priceOfProduct);
         console.log('PRICE: '+ priceOfProduct);
@@ -1281,18 +1289,35 @@ function TOP_UP_BTC(){
     $('.ALCNTS').addClass('hide');
     $('.BITCOIN_SECTION').removeClass('hide');
 
-    var value = $(".dollar_amount").text();
-    addUP(value);
+    // var value = $(".dollar_amount").text();
+    var value = $("#total_cart").text();
+
+    // addUP(value);
 }
+
 function addUP(x){
-    console.log("x: " + x);
+    console.log("addup x: " + x);
 
     var num1 = Number(x);
-    console.log("num1: " + num1);
-    var total = num1 + 200;
-    $('.btc_amount_balance').text(total);
+    var num2 = Number('350');
 
-    console.log(total);
+    if ($("#pvn").is(":visible")) { 
+        console.log("Element is visible"); 
+        console.log("num1: " + num1);
+        console.log("num2: " + num2);
+        var total = num1 + num2;
+        $('#total_cart').text(total);
+        $('.btc_amount_balance').text(total);
+    }else{
+        console.log("Element is not visible"); 
+        console.log("num1: " + num1);
+        console.log("num2: " + num2);
+        var total = num1 + num2;
+        $('#total_cart').text(total);
+        $('.btc_amount_balance').text(total);
+    }
+
+    console.log("TOTAL= " + total);
 }
 function OPEN_MYORDERS(){
     $('.ALCNTS').addClass('hide');
