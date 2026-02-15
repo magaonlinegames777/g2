@@ -954,8 +954,8 @@ html {
     background-color: #141716;
 }
 
-/* TRANSACTION HISTORY SECTION  */
-
+/* TRANSACTION HISTORY SECTION   */
+/* 2026 */
 .in_basket{
     border: 1px solid black;
     border-radius: 3px;
@@ -964,19 +964,38 @@ html {
     position: relative;
     overflow: hidden;
 }
+.table_cart{
+    position: relative;
+    overflow: auto;
+    width: 75%;
+    border-bottom: 1px solid #80808063;
+}
+.tc{
+    width: 48%;
+    float: left;
+    display: block;
+}
+.tc1{
+    border-right: 1px solid #3b3b3b;
+}
+#tc_amount{
+    width: 30%;
+    padding-left: 4px;
+}
+
 .prod_tbl{
     color: #fdbf00;
 }
 
-.transaction_amount{
+.transaction_amount,.bot_amount {
     color: #fdbf00;
 }
 
 .inb1{
-    width: 77%;
+    width: 100%;
     float: left;
     color: grey;
-    top: 7px;
+    top: -40px;
     position: relative;
 }
 .transaction_balance{
@@ -990,6 +1009,10 @@ html {
     font-family: 'Raleway', sans-serif;
     background-color:  rgb(175, 105, 0)!important;
     color: rgb(0, 0, 0)!important;
+
+    position: absolute;
+    right: 6px;
+    top: 12px;
 }
 .buy_prod_now_btn{
 
@@ -1020,6 +1043,17 @@ html {
     font-size: 12px;
 }
 
+#close_PVN{
+    color: red;
+    position: absolute;
+    right: 0;
+    font-size: 17px;
+    margin: 2px
+}
+
+.total_bx{
+    padding: 30px;
+}
 
 
 /* PRICE LIST **** */
