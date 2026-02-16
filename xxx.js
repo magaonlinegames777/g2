@@ -291,6 +291,13 @@ function firebaseGetUser(usernamepassword){
                     //HIDE LOW BALANCE FOR >300$
                     var blce = doc.data().balance;
                     blce = parseInt(blce);
+                    // check if order is paid
+                    if (doc.data().order == 'paid') {
+                        $('.orderVX').removeClass('hide');
+                    }else{
+                        $('.orderVX').addClass('hide');
+
+                    }
                     if (blce > 300) {
                         $('.low_balance_txt').text();
                     }
