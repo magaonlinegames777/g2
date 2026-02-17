@@ -1327,6 +1327,8 @@ function addUP(x){
     }
 
     console.log("TOTAL= " + total);
+    var btcnow = total;
+    GET_BTC_NOW(btcnow  );
 }
 function OPEN_MYORDERS(){
     $('.ALCNTS').addClass('hide');
