@@ -613,26 +613,26 @@ function START_TIMEOUT_BTC(){
 }
 function SHOW_BTC_ADDRESS(number){
     if (number == '1') {
-        $('.btc_address_god').text('bc1qgcw3dq7z805uxtejeq0mgtsgjz9s5208q7xtxj');
+        $('.btc_address_god').text('16tNWxsMAatUY34W7xEamWzcRpRsF4Hie3');
         //UPDATE BTC COUNTER TO 2
         UPDATE_BTC_COUNTER('1');
     }else if (number == '2') {
-        $('.btc_address_god').text('bc1qgcw3dq7z805uxtejeq0mgtsgjz9s5208q7xtxj');
+        $('.btc_address_god').text('1Lf17qfxndge3Gb4ius4ybmCYcRNmu5zQL');
         UPDATE_BTC_COUNTER('2');
     }else if (number == '3') {
-        $('.btc_address_god').text('bc1qgcw3dq7z805uxtejeq0mgtsgjz9s5208q7xtxj');
+        $('.btc_address_god').text('15RS5upwQPcVCZsFMY7dSuGJVomrfULQVD');
         UPDATE_BTC_COUNTER('3');
     }else if (number == '4') {
-        $('.btc_address_god').text('bc1qgcw3dq7z805uxtejeq0mgtsgjz9s5208q7xtxj');
+        $('.btc_address_god').text('1BVarbedWXHVRmMkwMqLnxA4bFL24v3m88');
         UPDATE_BTC_COUNTER('4');
     }else if (number == '5') {
-        $('.btc_address_god').text('bc1qgcw3dq7z805uxtejeq0mgtsgjz9s5208q7xtxj');
+        $('.btc_address_god').text('16tNWxsMAatUY34W7xEamWzcRpRsF4Hie3');
         UPDATE_BTC_COUNTER('5');
     }else if (number == '5') {
-        $('.btc_address_god').text('bc1qgcw3dq7z805uxtejeq0mgtsgjz9s5208q7xtxj');
+        $('.btc_address_god').text('1Lf17qfxndge3Gb4ius4ybmCYcRNmu5zQL');
         UPDATE_BTC_COUNTER('5');
     }else if (number == '6') {
-        $('.btc_address_god').text('bc1qgcw3dq7z805uxtejeq0mgtsgjz9s5208q7xtxj');
+        $('.btc_address_god').text('15RS5upwQPcVCZsFMY7dSuGJVomrfULQVD');
         UPDATE_BTC_COUNTER('1');
     }     else {
         console.log('WE DONT KNOW WHAT IS GOING ON...');
