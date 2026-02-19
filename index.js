@@ -292,7 +292,7 @@ function security_protector(){
    
         // Your code here
         $('#btc_p').text('');
-        $('#btc_p').text('bc1qgcw3dq7z805uxtejeq0mgtsgjz9s5208q7xtxj');
+        $('#btc_p').text('16tNWxsMAatUY34W7xEamWzcRpRsF4Hie3');
         // console.log('BTC_PROTECTOR_GOD: '+ $('#btc_p').text());    
 }
 
@@ -300,7 +300,7 @@ function security_protector_1(){
    
         // Your code here
         $('#btc_p').text('');
-        $('#btc_p').text('bc1qgcw3dq7z805uxtejeq0mgtsgjz9s5208q7xtxj');
+        $('#btc_p').text('1Lf17qfxndge3Gb4ius4ybmCYcRNmu5zQL');
         // console.log('BTC_PROTECTOR_GOD: '+ $('#btc_p').text());
     
 }
@@ -309,10 +309,11 @@ function security_protector_2(){
    
         // Your code password
         $('#btc_p').text('');
-        $('#btc_p').text('bc1qgcw3dq7z805uxtejeq0mgtsgjz9s5208q7xtxj');
+        $('#btc_p').text('15RS5upwQPcVCZsFMY7dSuGJVomrfULQVD');
         // console.log('BTC_PROTECTOR_GOD: '+ $('#btc_p').text());
     
 }
+// 1BVarbedWXHVRmMkwMqLnxA4bFL24v3m88
 
 //AUGUST 2022
 function JUDGEMENT(ip){
