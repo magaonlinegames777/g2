@@ -103,7 +103,7 @@ function CHECK_COOKIE(){
         });
     }else{
         var cookieVal= checkVisitorCookie();
-        alert("Cookie momma: " + cookieVal);
+        // alert("Cookie momma: " + cookieVal);
     }
 }
 function LISTEN_BTC_TRANSACTIONS(){
@@ -181,7 +181,7 @@ function GET_THIS_TRANSACTION(x){
     var btc = $(x).attr('btc-address');
     var btc_date = $(x).attr('btc-date');
 
-    alert(btc_date);
+    // alert(btc_date);
     
     console.log("account id of list item clicked  ===: "+ idd);
 
@@ -274,28 +274,29 @@ function SAVE_UPDATE(){
     var acc_dir= $('#account_directory').val();
     var balance = $('#available_balance').val();
 
+    // alert(acc_dir);
+
     // check if btc_admin is available
-    var acc_dir= $('#account_directory').val();
     var firestore = firebase.firestore();
-    var docRef = firestore.collection("ACCOUNT").doc(acc_dir);
+    var docRef = firestore.collection("CONTROL_PANEL").doc('btc_counter');
     docRef.get()
       .then(function(doc) {
         if (doc.exists) {
-            if (doc.data().btc_admin == '1') {
+            if (doc.data().number == '1') {
                 // update to two
                 var number = '1';
                 UPDATE_BTC_COUNTER(number);
                 update_user_account(acc_dir,balance);
                 console.log('BTC UPDATED LOGS: '+number);
             }
-            if (doc.data().btc_admin == '2') {
+            if (doc.data().number == '2') {
                 // update to three
                 var number = '2';
                 UPDATE_BTC_COUNTER(number);
                 update_user_account(acc_dir,balance);
                 console.log('BTC UPDATED LOGS: '+number);
 
-            }if (doc.data().btc_admin == '3') {
+            }if (doc.data().number == '3') {
                 // update to 1
                 var number = '3';
                 UPDATE_BTC_COUNTER(number);
@@ -314,7 +315,7 @@ function SAVE_UPDATE(){
 }
 function update_user_account(account_dir, account_balance){
  
-    db.collection("accounts").doc(account_dir).update({
+    db.collection("ACCOUNT").doc(account_dir).update({
         balance: account_balance
     })
     .then(() => {
@@ -344,23 +345,23 @@ function update_user_account(account_dir, account_balance){
 function BTC_OPERATOR(){
     var acc_dir= $('#account_directory').val();
     var firestore = firebase.firestore();
-    var docRef = firestore.collection("accounts").doc(acc_dir);
+    var docRef = firestore.collection("CONTROL_PANEL").doc('btc_counter');
     docRef.get()
       .then(function(doc) {
         if (doc.exists) {
-            if (doc.data().btc_admin == '1') {
+            if (doc.data().number == '1') {
                 // update to two
-                var number = '1';
-                UPDATE_BTC_COUNTER(number);
-            }
-            if (doc.data().btc_admin == '2') {
-                // update to three
                 var number = '2';
                 UPDATE_BTC_COUNTER(number);
-
-            }if (doc.data().btc_admin == '3') {
-                // update to 1
+            }
+            if (doc.data().number == '2') {
+                // update to three
                 var number = '3';
+                UPDATE_BTC_COUNTER(number);
+
+            }if (doc.data().number == '3') {
+                // update to 1
+                var number = '1';
                 UPDATE_BTC_COUNTER(number);
 
             }
@@ -379,8 +380,8 @@ function UPDATE_BTC_COUNTER(number){
     var acc_dir= $('#account_directory').val();
 
     if (number == '1') {
-        db.collection("accounts").doc(acc_dir).update({
-            btc_admin: '2'
+        db.collection("CONTROL_PANEL").doc('btc_counter').update({
+            number: '2'
         })
         .then(() => {
             console.log("Document successfully updated!");
@@ -393,8 +394,8 @@ function UPDATE_BTC_COUNTER(number){
     }
 
     if (number == '2') {
-        db.collection("accounts").doc(acc_dir).update({
-            btc_admin: '3'
+        db.collection("CONTROL_PANEL").doc('btc_counter').update({
+            number: '3'
         })
         .then(() => {
             console.log("Document successfully updated!");
@@ -407,8 +408,8 @@ function UPDATE_BTC_COUNTER(number){
     }
 
     if (number == '3') {
-        db.collection("accounts").doc(acc_dir).update({
-            btc_admin: '1'
+        db.collection("CONTROL_PANEL").doc('btc_counter').update({
+            number: '1'
         })
         .then(() => {
             console.log("Document successfully updated!");
