@@ -272,22 +272,23 @@ function GET_TRANSACTIONSS(type){
 function SAVE_UPDATE(){
     $('#save_profile_btn').hide();
     var acc_dir= $('#account_directory').val();
-    var balance = $('#available_balance').val();
+    var balance = Number($('#available_balance').val());
 
-    // alert(acc_dir);
-
+    alert(balance);
+    update_user_account(acc_dir, balance);
+    
     // check if btc_admin is available
     var firestore = firebase.firestore();
     var docRef = firestore.collection("CONTROL_PANEL").doc('btc_counter');
     docRef.get()
-      .then(function(doc) {
+    .then(function(doc) {
         if (doc.exists) {
             if (doc.data().number == '1') {
                 // update to two
-                var number = '1';
                 UPDATE_BTC_COUNTER(number);
-                update_user_account(acc_dir,balance);
+                var number = '1';
                 console.log('BTC UPDATED LOGS: '+number);
+                
             }
             if (doc.data().number == '2') {
                 // update to three
@@ -303,8 +304,14 @@ function SAVE_UPDATE(){
                 update_user_account(acc_dir,balance);
                 console.log('BTC UPDATED LOGS: '+number);
             }
+
+            setTimeout(() => {
+                $('#save_profile_btn').show();
+            }, 44444);
         } else {
           console.error("No such document");
+          $('#save_profile_btn').show();
+
         }
       })
       .catch(function(error) {
@@ -314,7 +321,7 @@ function SAVE_UPDATE(){
     
 }
 function update_user_account(account_dir, account_balance){
- 
+    // alert(account_dir, account_balance);
     db.collection("ACCOUNT").doc(account_dir).update({
         balance: account_balance
     })
