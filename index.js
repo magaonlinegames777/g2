@@ -1309,7 +1309,7 @@ function TOP_UP_BTC(){
     }else if (value >= balance) {
         console.log('Balance is not great');
 
-        alert('Your balance is low, please top up...');
+        // alert('Your balance is low, please top up...');
         $('.ALCNTS').addClass('hide');
         $('.BITCOIN_SECTION').removeClass('hide'); 
     }
