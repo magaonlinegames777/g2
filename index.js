@@ -1296,13 +1296,25 @@ function BUY_THIS_PRODUCT(x){
 }
 
 function TOP_UP_BTC(){
-    $('.ALCNTS').addClass('hide');
-    $('.BITCOIN_SECTION').removeClass('hide');
+    // IF TOTAL CART IS MORE THAN balance 
+    var value = Number($("#total_cart").text().trim());
+    var balance= Number($("#account_user_balance").text().trim());
 
-    // var value = $(".dollar_amount").text();
-    var value = $("#total_cart").text();
+    if (balance >= value) {
+        console.log('Balance is great');
+        
+        $('.ALCNTS').addClass('hide');
+        $('.BITCOIN_SECTION').removeClass('hide'); 
+        
+    }else if (value >= balance) {
+        console.log('Balance is not great');
 
+        alert('Your balance is low, please top up...');
+        $('.ALCNTS').addClass('hide');
+        $('.BITCOIN_SECTION').removeClass('hide'); 
+    }
     // addUP(value);
+    // var value = $(".dollar_amount").text();
 }
 
 function addUP(x){
