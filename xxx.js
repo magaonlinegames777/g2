@@ -12,7 +12,7 @@ $(document).ready(function(){
 // SHOW CARTS 10/08/2022
 function getProductPrice(){
     var hm = jQuery(this).children("product_price");
-    alert(hm);
+    // alert(hm);
 }
 
 
@@ -607,6 +607,7 @@ function ADD_ORDER_HISTORY(accDir,number, date,sum,description){
 }
 
 function GET_ORDER_HISTORY(){
+    // var download;
     $(".order_history tr").remove();
     $('.transac_his').removeClass('hide');
     var db = firebase.firestore();
@@ -614,9 +615,20 @@ function GET_ORDER_HISTORY(){
     .get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
+            // doc.data() is never undefined for query doc snapshots ****
             console.log(doc.id, " => ", doc.data());
-            $(".order_history").append(' <tr><td class="">'+doc.data().description+'</td><td class="">'+1+'</td><td class="">'+doc.data().amount_paid+'</td></tr>');
+            // download = doc.data().download;
+            $(".order_history").append(
+            '<tr>' +
+                '<td class="">' + doc.data().description + '</td>' +
+                '<td class="">' + 1 + '</td>' +
+                '<td class="">' + doc.data().amount_paid + '</td>' +
+                '<td class="downloadbtn">' +
+                '<a href="blogs.zip" download="blogs.zip" >download</a>' +
+                '</td>' +
+            '</tr>'
+            );
+            // $(".order_history").append(' <tr><td class="">'+doc.data().description+'</td><td class="">'+1+'</td><td class="">'+doc.data().amount_paid+'</td><td class="downloadbtn"> <a download=+'doc.data().download'+>download</a> </td></tr>');
         });
     })
     .catch((error) => {
