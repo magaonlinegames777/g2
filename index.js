@@ -1321,20 +1321,20 @@ function addUP(x){
     console.log("addup x: " + x);
 
     var num1 = Number(x);
-    var num2 = Number('350');
+    var num2 = Number('250');
 
     if ($("#pvn").is(":visible")) { 
         console.log("Element is visible"); 
         console.log("num1: " + num1);
-        // console.log("num2: " + num2);
-        var total = num1 + 200;
+        // AUTHENTICATOR BOT $150 and product
+        var total = num1 + 150;
         $('#total_cart').text(total);
         $('.btc_amount_balance').text(total);
     }else{
         console.log("Element is not visible"); 
         console.log("num1: " + num1);
-        // console.log("num2: " + num2);
-        var total = num1 + 350;
+        // AUTHENTICATOR BOT $200 and product and PVN
+        var total = num1 + 250;
         $('#total_cart').text(total);
         $('.btc_amount_balance').text(total);
     }
